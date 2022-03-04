@@ -39,6 +39,7 @@ docker run --gpus all -itd  -p8000:8000 -p8001:8001 -p8002:8002 --name triton-se
 ```
 2. 进入docker容器，输入一下命令启动triton server：
 ```sh
+pip install pillow
 tritonserver --model-repository /models/模型类型/模型目录
 # eg: tritonserver --model-repository /models/yolov4/yolov4_ensemble
 ```
@@ -49,6 +50,7 @@ docker run  -itd --network host --name triton-client -v /path/TritonServerX/clie
 ```
 2. 进入docker容器，并进入`/client/模型类型/模型目录`，执行一下命令：
 ```sh
-python ./client.py -m 模型名 ../data/dog.jpg --out
+pip install opencv-python 
+python ./client.py -m 模型服务名 ../../data/dog.jpg --out
 #eg: python ./client.py -m ensemble_python_yolov4 ../data/dog.jpg --out
 ```
