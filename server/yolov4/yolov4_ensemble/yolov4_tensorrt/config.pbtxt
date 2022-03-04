@@ -1,0 +1,23 @@
+name: "yolov4_tensorrt"
+platform: "tensorrt_plan"
+max_batch_size : 8
+input [
+  {
+    name: "input"
+    data_type: TYPE_FP32
+    format: FORMAT_NCHW
+    dims: [  3, 512, 512 ]
+  }
+]
+output [
+  {
+    name: "confs"
+    data_type: TYPE_FP32
+    dims: [ 16128, 80 ]
+  },
+  {
+    name: "boxes"
+    data_type: TYPE_FP32
+    dims: [ 16128, 1, 4 ]
+  }
+]

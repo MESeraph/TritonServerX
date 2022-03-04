@@ -1,0 +1,25 @@
+name: "proprocess"
+backend: "python"
+max_batch_size: 8
+input [
+{
+    name: "INPUT_CONFS"
+    data_type: TYPE_FP32
+    dims: [16128, 80]
+},
+{
+    name: "INPUT_BOXES"
+    data_type: TYPE_FP32
+    dims: [16128, 1, 4]
+}
+]
+
+output [
+{
+    name: "OUTPUT_RES"
+    data_type: TYPE_FP32
+    dims: [-1, 7]
+}
+]
+
+instance_group[{kind: KIND_CPU}]
