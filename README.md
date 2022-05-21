@@ -54,4 +54,3 @@ pip install opencv-python
 python ./client.py -m 模型服务名 ../../data/dog.jpg --out
 #eg: python ./client.py -m ensemble_python_yolov4 ../data/dog.jpg --out
 ```
-test1
